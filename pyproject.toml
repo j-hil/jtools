@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "jtools"
+description = "Utility code by j-hil."
+readme = "README.md"
+license = {text="GNU General Public License v3 (GPLv3)"}
+authors = [
+    { name = "j-hil", email = "92876062+j-hil@users.noreply.github.com" }
+]
+keywords = ["tools", "utils", "utilities"]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3",
+]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://j-hil@github.com/j-hil/jtools"
+
+[tool.hatch.version]
+path = "src/jtools/__init__.py"
+
