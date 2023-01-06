@@ -6,9 +6,9 @@ build-backend = "hatchling.build"
 name = "jtools"
 description = "Utility code by j-hil."
 readme = "README.md"
-license = {text="GNU General Public License v3 (GPLv3)"}
+license = { text = "GNU General Public License v3 (GPLv3)" }
 authors = [
-    { name = "j-hil", email = "92876062+j-hil@users.noreply.github.com" }
+    { name = "j-hil", email = "92876062+j-hil@users.noreply.github.com" },
 ]
 keywords = ["tools", "utils", "utilities"]
 classifiers = [
@@ -25,3 +25,83 @@ Homepage = "https://j-hil@github.com/j-hil/jtools"
 [tool.hatch.version]
 path = "src/jtools/__init__.py"
 
+[tool.hatch.build.targets.wheel]
+packages = ["src/jtools"]
+
+[tool.coverage.run]
+branch = true
+source = ["./src/findroots"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "__debug__",
+]
+
+[tool.mypy]
+strict = true
+show_error_codes = true
+
+
+[tool.pylint.basic]
+# allows short names (which are to be used with due consideration):
+argument-rgx = "(?#snake_case)^[a-z0-9]*(_[a-z0-9]+)*_?$"
+variable-rgx = "(?#snake_case)^[a-z0-9]*(_[a-z0-9]+)*_?$"
+attr-rgx = "(?#snake_case)^[a-z0-9]*(_[a-z0-9]+)*_?$"
+const-rgx = "(?#CAPITAL_CASE)^[A-Z0-9]*(_[A-Z0-9]+)*_?|__[a-z]*__$"
+class-rgx = "(?#PascalCase)^_?([A-Z][a-z]+)*[A-Z]?_?$"
+
+[tool.pylint.format]
+max-line-length = 88
+
+[tool.pylint.design]
+max-attributes = 10    # (default = 7)
+min-public-methods = 0 # (default = 2)
+max-branches = 15      # (default = 12)
+max-locals = 20        # (default = 15)
+
+[tool.pylint.messages_control]
+# I decide if something needs a docstring, not pylint or pydocstyle :|
+disable = [
+    "missing-function-docstring",
+    "missing-class-docstring",
+    "missing-module-docstring",
+]
+
+[tool.pylint.reports]
+output-format = "colorized"
+
+[tool.flake8]
+# pyproject.toml support from package Flake8-pyproject
+ignore = [
+    # code   # what; why
+    "E741", # ambiguous variable name 'l'; my font is unambigious
+    "E402", # module level import not at top of file; handled (better) by pylint
+    "W503", # line break before binary operator; flake8 is just wrong
+]
+max-line-length = 88
+
+
+[tool.pydocstyle]
+ignore = [
+    "D1",   # Missing docstrings
+    "D213", # Multi-line docstring summary should start at the second line
+    "D203", # 1 blank line required before class docstring
+    "D202", # No blank lines allowed after function docstring
+]
+
+[tool.autoflake]
+recursive = true
+remove-all-unused-imports = true
+remove-duplicate-keys = true
+remove-unused-variables = true
+in-place = true
+
+[tool.isort]
+profile = "black"
+
+[tool.pydocstringformatter]
+write = true
