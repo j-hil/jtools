@@ -1,50 +1,50 @@
 digraph topics {
     // Fluid Dynamics
-    FD -> VC
-    FD -> "D&R"
-    FD -> Mthds
+    VC -> FD
+    "D&R" -> FD
+    Mthds -> FD
     // Electromagnetism
-    EM -> VC
-    EM -> "D&R"
-    EM -> Mthds
+    VC -> EM
+    "D&R" -> EM
+    Mthds -> EM
     // Numerical Analysis
-    NA -> LA
+    LA -> NA
     // Statistics
-    Stats -> Prob
+    Prob -> Stats
     // Complex Methods
-    CM -> "V&M"
-    CM -> DE
+    "V&M" -> CM
+    DE -> CM
     // Complex Analysis
-    CM -> "V&M"
-    CM -> DE
-    CM -> Anlys
+    "V&M" -> CA
+    DE -> CA
+    Anlys -> CA
     // Geometry
-    Geo -> "A&T"
+    "A&T" -> Geo
     // Groups, Rings, and Modules
-    GRM -> Grps
+    Grps -> GRM
     // Markov Chains
-    MC -> Prob
+    Prob -> MC
     // Quantum Mechanics
-    QM -> Mthds
-    QM -> LA
+    Mthds -> QM
+    LA -> QM
     // Methods
-    Mthds -> VP
-    Mthds -> VC
+    VP -> Mthds
+    VC -> Mthds
     // Analysis and Topology
-    "A&T" -> Anlys
+    Anlys -> "A&T"
     // Linear Algebra
-    LA -> "V&M"
-    LA -> Grps
+    "V&M" -> LA
+    Grps -> LA
     // Optimization
-    Opt -> "V&M"
-    Opt -> "N&S"
+    "V&M" -> Opt
+    "N&S" -> Opt
     // Variational Principles
-    VP -> DE
+    DE -> VP
     // Dynamics and Relativity
-    "D&R" -> DE
+    DE -> "D&R"
     // Vector Calculus
-    VC -> DE
-    VC -> "V&M"
+    DE -> VC
+    "V&M" -> VC
     /*
         Probablity, Analysis, Differential Equations, Numbers & Sets,
         Vectors & Matrices and Groups are all "root" courses.
