@@ -1,5 +1,11 @@
 repos:
 
+  # comform
+  - repo: https://github.com/j-hil/comform
+    rev: 0.1.0
+    hooks:
+      - id: comform
+
   # pre-commit-hooks
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v2.3.0
